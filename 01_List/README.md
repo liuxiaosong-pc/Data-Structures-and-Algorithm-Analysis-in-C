@@ -66,7 +66,7 @@ ADT List {
 ----
 
 **[回到顶部](#线性表)**
-**[回到首页](https://github.com/zhengqijun0121/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/README.md)**
+**[回到首页](https://github.com/zhengqijun0121/Data-Structures-and-Algorithm-Analysis-in-C)**
 
 <!-- EOF -->
 
