@@ -1,15 +1,15 @@
 /*****************************************************
 Copyright (C) 2019. All rights reserved.
-File name     ：LinkList.c
+File name     ：LinkedList.c
 Version       ：v1.0
 Author        ：zhengqijun
 Date          ：2019-12-25
 Function List ：
-Description   ：Link List
+Description   ：Linked List
 ******************************************************/
 
-#include "LinkList.h"
-#include <stdlib.h>
+#include "LinkedList.h"
+#include <stdlib.h>  // for malloc
 #include "FatalError.h"
 
 struct Node {
@@ -17,12 +17,12 @@ struct Node {
     Position    Next;
 };
 
-LinkList MakeEmpty(LinkList L) {
+LinkedList MakeEmpty(LinkedList L) {
     if (L != NULL) {
         DeleteList(L);
     }
 
-    L = (LinkList)malloc(sizeof(struct Node));
+    L = (LinkedList)malloc(sizeof(struct Node));
     if (L == NULL) {
         FatalError("Out of space!!!");
     }
@@ -33,18 +33,18 @@ LinkList MakeEmpty(LinkList L) {
 }
 
 /* Return true if L is empty */
-int IsEmpty(LinkList L) {
+int IsEmpty(LinkedList L) {
     return L->Next == NULL;
 }
 
 /* Return true if P is the last position in list L */
 /* Parameter L is unused in this implementation */
-int IsLast(Position P, LinkList L) {
+int IsLast(Position P, LinkedList L) {
     return P->Next == NULL;
 }
 
 /* Return Position of X in L; NULL if not found */
-Position Find(ElementType X, LinkList L) {
+Position Find(ElementType X, LinkedList L) {
     Position P;
 
     P = L->Next;
@@ -59,7 +59,7 @@ Position Find(ElementType X, LinkList L) {
 /* Cell pointed to by P->Next is wiped out */
 /* Assume that the position is legal */
 /* Assume use of a header node */
-void Delete(ElementType X, LinkList L) {
+void Delete(ElementType X, LinkedList L) {
     Position P, TmpCell;
 
     P = FindPrevious(X, L);
@@ -75,7 +75,7 @@ void Delete(ElementType X, LinkList L) {
 /* If X is not found, then Next field of returned */
 /* Position is NULL */
 /* Assumes a header */
-Position FindPrevious(ElementType X, LinkList L) {
+Position FindPrevious(ElementType X, LinkedList L) {
     Position P;
 
     P = L;
@@ -89,7 +89,7 @@ Position FindPrevious(ElementType X, LinkList L) {
 /* Insert (after legal position P) */
 /* Header implementation assumed */
 /* Parameter L is unused in this implementation */
-void Insert(ElementType X, LinkList L, Position P) {
+void Insert(ElementType X, LinkedList L, Position P) {
     Position TmpCell;
 
     TmpCell = (Position)malloc(sizeof(struct Node));
@@ -103,7 +103,7 @@ void Insert(ElementType X, LinkList L, Position P) {
 }
 
 /* Correct DeleteList algorithm */
-void DeleteList(LinkList L) {
+void DeleteList(LinkedList L) {
     Position P, TmpCell;
 
     P = L->Next;  /* Header assumed */
@@ -115,11 +115,11 @@ void DeleteList(LinkList L) {
     }
 }
 
-Position Header(LinkList L) {
+Position Header(LinkedList L) {
     return L;
 }
 
-Position First(LinkList L) {
+Position First(LinkedList L) {
     return L->Next;
 }
 
@@ -129,18 +129,6 @@ Position Advance(Position P) {
 
 ElementType Retrieve(Position P) {
     return P->Element;
-}
-
-void Display(LinkList L) {
-    Position TmpCell;
-
-    TmpCell = L->Next;
-    printf("LinkList:[ ");
-    while (TmpCell != NULL) {
-        printf("%d ", TmpCell->Element);
-        TmpCell = TmpCell->Next;
-    }
-    printf("]\n");
 }
 
 // EOF

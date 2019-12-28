@@ -21,7 +21,7 @@ $(Target) : $(Objs)
 	@echo make done!
 
 clean :
-	rm -f $(Target) $(Objs)
+	rm -f $(Target)
 	@echo make clean!
 
 # EOF
