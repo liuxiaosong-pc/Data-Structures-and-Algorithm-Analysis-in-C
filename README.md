@@ -27,13 +27,15 @@
 - 双向循环链表
 
 ### 栈
+- 顺序栈
+- 链式栈
 
 ### 队列
 
 ----
 
 ## 推荐
-浙江大学的数据结构视频课程，可在 **[Bilibili](https://www.bilibili.com/)** 上搜索观看．:fire: :whale:
+推荐浙江大学的数据结构视频课程，可在 **[Bilibili](https://www.bilibili.com/)** 上搜索观看．:fire: :whale:
 
 ----
 
@@ -45,7 +47,7 @@ Reference目录中是<<数据结构与算法分析>>的参考代码，仅供参�
 ## 贡献
 本工程致力于数据结构的学习，均以Ｃ语言实现．如果实现代码有问题，欢迎大家指出修改．作者水平有限，恳请原谅！
 
-同时，欢迎大家共同维护该工程．如果你有更好的实现，不妨大家一起交流．(:e-mail: Email: zhengqijun0121@qq.com)
+同时，欢迎大家共同维护该工程．如果您有更好的实现，不妨大家一起交流．(:e-mail: Email: zhengqijun0121@qq.com)
 
 Open Source! Enjoy yourself! :squirrel:
 

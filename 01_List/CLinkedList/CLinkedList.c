@@ -1,14 +1,14 @@
 /*****************************************************
 Copyright (C) 2019. All rights reserved.
-File name     ：LinkedList.c
+File name     ：CLinkedList.c
 Version       ：v1.0
 Author        ：zhengqijun
-Date          ：2019-12-25
+Date          ：2019-12-27
 Function List ：
-Description   ：Linked List
+Description   ：Circular Linked List
 ******************************************************/
 
-#include "LinkedList.h"
+#include "CLinkedList.h"
 #include <stdlib.h>  // for malloc
 #include "FatalError.h"
 
@@ -17,40 +17,43 @@ struct Node {
     Position    Next;
 };
 
-LinkedList MakeEmpty(LinkedList L) {
-    /* Allocated if L is NULL */
+CLinkedList MakeEmpty(CLinkedList L) {
     if (L != NULL) {
         DeleteList(L);
     } else {
-        L = (LinkedList)malloc(sizeof(struct Node));
+        L = (CLinkedList)malloc(sizeof(struct Node));
         if (L == NULL) {
             FatalError("Out of space!!!");
         }
 
-        L->Next = NULL;
+        L->Next = L;
     }
 
     return L;
 }
 
-/* Return true if L is empty */
-int IsEmpty(LinkedList L) {
-    return L->Next == NULL;
+/* Return true if L->Next is L */
+int IsEmpty(CLinkedList L) {
+    return L->Next == L;
 }
 
 /* Return true if P is the last position in list L */
-/* Parameter L is unused in this implementation */
-int IsLast(Position P, LinkedList L) {
-    return P->Next == NULL;
+int IsLast(Position P, CLinkedList L) {
+    return P->Next == L;
 }
 
 /* Return Position of X in L; NULL if not found */
-Position Find(ElementType X, LinkedList L) {
+Position Find(ElementType X, CLinkedList L) {
     Position P;
 
     P = L->Next;
-    while (P != NULL && P->Element != X) {
+    while (P != L && P->Element != X) {
         P = P->Next;
+    }
+
+    /* Return NULL if P is equal to the head node */
+    if (P == L) {
+        P = NULL;
     }
 
     return P;
@@ -60,7 +63,7 @@ Position Find(ElementType X, LinkedList L) {
 /* Cell pointed to by P->Next is wiped out */
 /* Assume that the position is legal */
 /* Assume use of a header node */
-void Delete(ElementType X, LinkedList L) {
+void Delete(ElementType X, CLinkedList L) {
     Position P, TmpCell;
 
     P = FindPrevious(X, L);
@@ -76,12 +79,17 @@ void Delete(ElementType X, LinkedList L) {
 /* If X is not found, then Next field of returned */
 /* Position is NULL */
 /* Assumes a header */
-Position FindPrevious(ElementType X, LinkedList L) {
+Position FindPrevious(ElementType X, CLinkedList L) {
     Position P;
 
     P = L;
-    while (P->Next != NULL && P->Next->Element != X) {
+    while (P->Next != L && P->Next->Element != X) {
         P = P->Next;
+    }
+
+    /* Return NULL if P is equal to the last node */
+    if (IsLast(P, L)) {
+        P = NULL;
     }
 
     return P;
@@ -90,7 +98,7 @@ Position FindPrevious(ElementType X, LinkedList L) {
 /* Insert (after legal position P) */
 /* Header implementation assumed */
 /* Parameter L is unused in this implementation */
-void Insert(ElementType X, LinkedList L, Position P) {
+void Insert(ElementType X, CLinkedList L, Position P) {
     Position TmpCell;
 
     TmpCell = (Position)malloc(sizeof(struct Node));
@@ -104,23 +112,23 @@ void Insert(ElementType X, LinkedList L, Position P) {
 }
 
 /* Correct DeleteList algorithm */
-void DeleteList(LinkedList L) {
+void DeleteList(CLinkedList L) {
     Position P, TmpCell;
 
     P = L->Next;  /* Header assumed */
-    L->Next = NULL;
-    while (P != NULL) {
+    L->Next = L;
+    while (P != L) {
         TmpCell = P->Next;
         free(P);
         P = TmpCell;
     }
 }
 
-Position Header(LinkedList L) {
+Position Header(CLinkedList L) {
     return L;
 }
 
-Position First(LinkedList L) {
+Position First(CLinkedList L) {
     return L->Next;
 }
 
