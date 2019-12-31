@@ -5,7 +5,7 @@ Version       ：v1.0
 Author        ：zhengqijun
 Date          ：2019-12-29
 Function List ：
-Description   ：Double Linked List
+Description   ：Doubly Linked List
 ******************************************************/
 
 #ifndef DLINKEDLIST_H

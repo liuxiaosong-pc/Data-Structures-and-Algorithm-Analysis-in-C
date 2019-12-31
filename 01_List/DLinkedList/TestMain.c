@@ -59,19 +59,23 @@ int main(void) {
     }
 
     if (Find(3, L) != NULL) {
-        printf("Find element 3 in the double linked list!\n");
+        printf("Find element 3 in the doubly linked list!\n");
     } else {
-        printf("Can not find element 3 in the double linked list!\n");
+        printf("Can not find element 3 in the doubly linked list!\n");
     }
 
     if (Find(6, L) != NULL) {
-        printf("Find element 6 in the double linked list!\n");
+        printf("Find element 6 in the doubly linked list!\n");
     } else {
-        printf("Can not Find element 6 in the double linked list!\n");
+        printf("Can not Find element 6 in the doubly linked list!\n");
     }
 
-    // Delete(3, L);
-    printf("Delete element 3 in the double linked list!\n");
+    Delete(3, L);
+    printf("Delete element 3 in the doubly linked list!\n");
+    PrintList(L);
+
+    Delete(5, L);
+    printf("Delete element 5 in the doubly linked list!\n");
     PrintList(L);
 
     DeleteList(L);

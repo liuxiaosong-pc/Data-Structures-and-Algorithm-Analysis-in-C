@@ -5,7 +5,7 @@ Version       ：v1.0
 Author        ：zhengqijun
 Date          ：2019-12-29
 Function List ：
-Description   ：Double Linked List
+Description   ：Doubly Linked List
 ******************************************************/
 
 #include "DLinkedList.h"
@@ -70,8 +70,13 @@ void Delete(ElementType X, DLinkedList L) {
 
     /* Assumption of header use X is found; delete it */
     if (P != NULL) {
-        P->Next->Prev = P->Prev;
+        /* Note! P->Next is NULL if X is the last element in list L */
+        if (P->Next != NULL) {
+            P->Next->Prev = P->Prev;
+        }
+
         P->Prev->Next = P->Next;
+
         free(P);
     }
 }
@@ -90,10 +95,13 @@ void Insert(ElementType X, DLinkedList L, Position P) {
     TmpCell->Element = X;
     TmpCell->Next = P->Next;
     P->Next = TmpCell;
+
+    /* Note! TmpCell->Next is NULL if P is the last position in list L */
     if (TmpCell->Next != NULL) {
         TmpCell->Next->Prev = TmpCell;
-        TmpCell->Prev = P;
     }
+
+    TmpCell->Prev = P;
 }
 
 /* Correct DeleteList algorithm */
