@@ -58,22 +58,26 @@ int main(void) {
     }
 
     if (Find(3, L) != NULL) {
-        printf("Find element 3 in the linked list!\n");
+        printf("Find element 3 in the circular linked list!\n");
     } else {
-        printf("Can not find element 3 in the linked list!\n");
+        printf("Can not find element 3 in the circular linked list!\n");
     }
 
     if (Find(6, L) != NULL) {
-        printf("Find element 6 in the linked list!\n");
+        printf("Find element 6 in the circular linked list!\n");
     } else {
-        printf("Can not Find element 6 in the linked list!\n");
+        printf("Can not Find element 6 in the circular linked list!\n");
     }
 
     Delete(3, L);
-    printf("Delete element 3 in the linked list!\n");
+    printf("Delete element 3 in the circular linked list!\n");
     PrintList(L);
 
     printf("At the front of element 4 is element %d\n", Retrieve(FindPrevious(4, L)));
+
+    Delete(5, L);
+    printf("Delete element 5 in the circular linked list!\n");
+    PrintList(L);
 
     DeleteList(L);
 
