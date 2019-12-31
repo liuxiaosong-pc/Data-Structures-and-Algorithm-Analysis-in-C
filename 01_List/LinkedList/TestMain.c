@@ -76,6 +76,10 @@ int main(void) {
 
     printf("At the front of element 4 is element %d\n", Retrieve(FindPrevious(4, L)));
 
+    Delete(5, L);
+    printf("Delete element 5 in the linked list!\n");
+    PrintList(L);
+
     DeleteList(L);
 
     if (IsEmpty(L)) {
