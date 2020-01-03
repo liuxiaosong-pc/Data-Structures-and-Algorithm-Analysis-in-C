@@ -31,7 +31,6 @@ LinkedStack CreateStack(void) {
     }
 
     S->Next = NULL;
-
     MakeEmpty(S);
 
     return S;
@@ -83,6 +82,24 @@ void Pop(LinkedStack S) {
         FirstCell = S->Next;
         S->Next = S->Next->Next;
         free(FirstCell);
+    }
+}
+
+ElementType TopAndPop(LinkedStack S) {
+    PtrToNode FirstCell;
+    ElementType X = 0;
+
+    if (IsEmpty(S)) {
+        Error("Empty stack");
+        return 0;  /* Return value used to avoid warning */
+    } else {
+        X = S->Next->Element;  /* Save the value of the first element */
+
+        FirstCell = S->Next;
+        S->Next = S->Next->Next;
+        free(FirstCell);
+
+        return X;
     }
 }
 

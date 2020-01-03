@@ -11,6 +11,7 @@ Description   ：Circular Linked List
 #ifndef CLINKLIST_H
 #define CLINKLIST_H
 
+// Type Definition
 struct Node;
 typedef int ElementType;
 typedef struct Node *PtrToNode;

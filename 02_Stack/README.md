@@ -23,6 +23,7 @@ ADT Stack {
     void Push(ElementType X, Stack S);
     ElementType Top(Stack S);
     void Pop(Stack S);
+    ElementType TopAndPop(Stack S);
 };
 ```
 

@@ -3,20 +3,20 @@ Copyright (C) 2019. All rights reserved.
 File name     ：TestMain.c
 Version       ：v1.0
 Author        ：zhengqijun
-Date          ：2019-12-28
+Date          ：2019-12-31
 Function List ：
 Description   ：main function
 ******************************************************/
 
 #include <stdio.h>  // for printf
-#include "LinkedStack.h"
+#include "SqStack.h"
 
 // PrintStack for testing
-void PrintStack(LinkedStack S) {
+void PrintStack(SqStack S) {
     if (IsEmpty(S)) {
-        printf("LinkedStack is empty!\n");
+        printf("SqStack is empty!\n");
     } else {
-        printf("LinkedStack Pop:[ ");
+        printf("SqStack Pop:[ ");
         while (!IsEmpty(S)) {
             printf("%d ", TopAndPop(S));
         }
@@ -26,19 +26,19 @@ void PrintStack(LinkedStack S) {
 
 // main function
 int main(void) {
-    LinkedStack S = NULL;
+    SqStack S = NULL;
 
-    S = CreateStack();
+    S = CreateStack(10);
 
     if (IsEmpty(S)) {
-        printf("LinkedStack is empty!\n");
+        printf("SqStack is empty!\n");
     } else {
-        printf("LinkedStack is not empty!\n");
+        printf("SqStack is not empty!\n");
     }
 
     {  /* Push stack */
         int i = 0;
-        printf("LinkedStack Push:[ ");
+        printf("SqStack Push:[ ");
         for (i = 0; i < 5; ++i) {
             printf("%d ", i + 1);
             Push(i + 1, S);
@@ -47,17 +47,17 @@ int main(void) {
     }
 
     if (IsEmpty(S)) {
-        printf("LinkedStack is empty!\n");
+        printf("SqStack is empty!\n");
     } else {
-        printf("LinkedStack is not empty!\n");
+        printf("SqStack is not empty!\n");
     }
 
     PrintStack(S);
 
     if (IsEmpty(S)) {
-        printf("LinkedStack is empty!\n");
+        printf("SqStack is empty!\n");
     } else {
-        printf("LinkedStack is not empty!\n");
+        printf("SqStack is not empty!\n");
     }
 
     DisposeStack(S);

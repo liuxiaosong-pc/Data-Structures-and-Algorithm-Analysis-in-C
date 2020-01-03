@@ -25,6 +25,7 @@ void MakeEmpty(LinkedStack S);
 void Push(ElementType X, LinkedStack S);
 ElementType Top(LinkedStack S);
 void Pop(LinkedStack S);
+ElementType TopAndPop(LinkedStack S);
 
 #endif  /* LINKEDSTACK_H */
 
