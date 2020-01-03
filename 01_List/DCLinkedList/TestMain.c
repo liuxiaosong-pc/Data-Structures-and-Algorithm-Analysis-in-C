@@ -3,23 +3,23 @@ Copyright (C) 2019. All rights reserved.
 File name     ：TestMain.c
 Version       ：v1.0
 Author        ：zhengqijun
-Date          ：2019-12-25
+Date          ：2019-12-31
 Function List ：
 Description   ：main function
 ******************************************************/
 
-#include <stdio.h>  // for printf
-#include "LinkedList.h"
+#include <stdio.h>
+#include "DCLinkedList.h"
 
 // PrintList for testing
-void PrintList(LinkedList L) {
+void PrintList(DCLinkedList L) {
     Position TmpCell;
 
     TmpCell = Header(L);
-    if (IsEmpty(TmpCell)) {
-        printf("LinkedList is empty!\n");
+    if (IsEmpty(L)) {
+        printf("DCLinkedList is empty!\n");
     } else {
-        printf("LinkedList:[ ");
+        printf("DCLinkedList:[ ");
         do {
             TmpCell = Advance(TmpCell);
             printf("%d ", Retrieve(TmpCell));
@@ -30,14 +30,14 @@ void PrintList(LinkedList L) {
 
 // main function
 int main(void) {
-    LinkedList L = NULL;
+    DCLinkedList L = NULL;
 
     L = MakeEmpty(L);
 
     if (IsEmpty(L)) {
-        printf("LinkedList is empty!\n");
+        printf("DCLinkedList is empty!\n");
     } else {
-        printf("LinkedList is not empty!\n");
+        printf("DCLinkedList is not empty!\n");
     }
 
     {  /* Insert method */
@@ -52,39 +52,37 @@ int main(void) {
     PrintList(L);
 
     if (IsEmpty(L)) {
-        printf("LinkedList is empty!\n");
+        printf("DCLinkedList is empty!\n");
     } else {
-        printf("LinkedList is not empty!\n");
+        printf("DCLinkedList is not empty!\n");
     }
 
     if (Find(3, L) != NULL) {
-        printf("Find element 3 in the linked list!\n");
+        printf("Find element 3 in the doubly circular linked list!\n");
     } else {
-        printf("Can not find element 3 in the linked list!\n");
+        printf("Can not find element 3 in the doubly circular linked list!\n");
     }
 
     if (Find(6, L) != NULL) {
-        printf("Find element 6 in the linked list!\n");
+        printf("Find element 6 in the doubly circular linked list!\n");
     } else {
-        printf("Can not Find element 6 in the linked list!\n");
+        printf("Can not Find element 6 in the doubly circular linked list!\n");
     }
 
     Delete(3, L);
-    printf("Delete element 3 in the linked list!\n");
+    printf("Delete element 3 in the doubly circular linked list!\n");
     PrintList(L);
 
-    printf("At the front of element 4 is element %d\n", Retrieve(FindPrevious(4, L)));
-
     Delete(5, L);
-    printf("Delete element 5 in the linked list!\n");
+    printf("Delete element 5 in the doubly circular linked list!\n");
     PrintList(L);
 
     DeleteList(L);
 
     if (IsEmpty(L)) {
-        printf("LinkedList is empty!\n");
+        printf("DCLinkedList is empty!\n");
     } else {
-        printf("LinkedList is not empty!\n");
+        printf("DCLinkedList is not empty!\n");
     }
 
     return 0;

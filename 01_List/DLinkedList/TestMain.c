@@ -19,12 +19,11 @@ void PrintList(DLinkedList L) {
     if (IsEmpty(TmpCell)) {
         printf("DLinkedList is empty!\n");
     } else {
-        TmpCell = Advance(TmpCell);
         printf("DLinkedList:[ ");
-        while (TmpCell != NULL) {
-            printf("%d ", Retrieve(TmpCell));
+        do {
             TmpCell = Advance(TmpCell);
-        }
+            printf("%d ", Retrieve(TmpCell));
+        } while (!IsLast(TmpCell, L));
         printf("]\n");
     }
 }
