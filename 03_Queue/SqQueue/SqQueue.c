@@ -52,7 +52,6 @@ SqQueue CreateQueue(int MaxElements) {
     }
 
     Q->Capacity = MaxElements;
-
     MakeEmpty(Q);
 
     return Q;
@@ -76,7 +75,6 @@ ElementType Front(SqQueue Q) {
         return Q->Array[Q->Front];
     } else {
         Error("Empty queue");
-
         return 0;  /* Return value used to avoid warning */
     }
 }

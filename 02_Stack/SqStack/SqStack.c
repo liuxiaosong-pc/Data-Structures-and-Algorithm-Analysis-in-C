@@ -37,7 +37,7 @@ SqStack CreateStack(int MaxElements) {
         Error("Stack size is too small");
     }
 
-    S = (SqStack)malloc(sizeof(SqStack));
+    S = (SqStack)malloc(sizeof(struct StackRecord));
     if (S == NULL) {
         FatalError("Out of space!!!");
     }
