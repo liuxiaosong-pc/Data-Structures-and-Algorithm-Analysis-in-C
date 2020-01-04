@@ -11,7 +11,8 @@ Description   ：Fatal Error
 #ifndef FATALERROR_H
 #define FATALERROR_H
 
-#include <stdio.h>  // for fprintf
+#include <stdio.h>   // for fprintf
+#include <stdlib.h>  // for exit
 
 #define Error(Str)        FatalError(Str)
 #define FatalError(Str)   fprintf(stderr, "%s\n", Str), exit(1)
