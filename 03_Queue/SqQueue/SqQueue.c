@@ -111,13 +111,14 @@ ElementType FrontAndDeQueue(SqQueue Q) {
 
     if (IsEmpty(Q)) {
         Error("Empty queue");
+        return 0;  /* Return value used to avoid warning */
     } else {
         --Q->Size;
         X = Q->Array[Q->Front];
         Q->Front = Succ(Q->Front, Q);
-    }
 
-    return X;
+        return X;
+    }
 }
 
 // EOF
