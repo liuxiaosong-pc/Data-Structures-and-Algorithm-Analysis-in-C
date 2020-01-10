@@ -27,7 +27,7 @@ void MakeEmpty(LinkedQueue Q);
 ElementType Front(LinkedQueue Q);
 void EnQueue(ElementType X, LinkedQueue Q);
 void DeQueue(LinkedQueue Q);
-ElementType FrontAndDeQueue(LinkedQueue Q);
+ElementType FrontAndDequeue(LinkedQueue Q);
 
 #endif  /* LINKEDQUEUE_H */
 

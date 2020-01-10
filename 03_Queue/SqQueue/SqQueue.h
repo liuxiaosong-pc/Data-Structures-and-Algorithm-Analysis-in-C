@@ -25,7 +25,7 @@ void MakeEmpty(SqQueue Q);
 ElementType Front(SqQueue Q);
 void EnQueue(ElementType X, SqQueue Q);
 void DeQueue(SqQueue Q);
-ElementType FrontAndDeQueue(SqQueue Q);
+ElementType FrontAndDequeue(SqQueue Q);
 
 #endif  /* SQQUEUE_H */
 

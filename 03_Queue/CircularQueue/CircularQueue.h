@@ -5,7 +5,7 @@ Version       ：v1.0
 Author        ：zhengqijun
 Date          ：2020-01-09
 Function List ：
-Description   ：Circular Queue
+Description   ：Sequential List Implementation Of Circular Queue
 ******************************************************/
 
 #ifndef CIRCULARQUEUE_H
@@ -25,7 +25,7 @@ void MakeEmpty(CircularQueue Q);
 ElementType Front(CircularQueue Q);
 void EnQueue(ElementType X, CircularQueue Q);
 void DeQueue(CircularQueue Q);
-ElementType FrontAndDeQueue(CircularQueue Q);
+ElementType FrontAndDequeue(CircularQueue Q);
 
 #endif  /* CIRCULARQUEUE_H */
 

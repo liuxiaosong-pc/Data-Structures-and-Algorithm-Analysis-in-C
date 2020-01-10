@@ -106,7 +106,7 @@ void DeQueue(SqQueue Q) {
     }
 }
 
-ElementType FrontAndDeQueue(SqQueue Q) {
+ElementType FrontAndDequeue(SqQueue Q) {
     ElementType X = 0;
 
     if (IsEmpty(Q)) {

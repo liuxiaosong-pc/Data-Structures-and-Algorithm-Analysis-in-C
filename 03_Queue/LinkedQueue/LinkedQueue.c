@@ -90,7 +90,7 @@ void DeQueue(LinkedQueue Q) {
     }
 }
 
-ElementType FrontAndDeQueue(LinkedQueue Q) {
+ElementType FrontAndDequeue(LinkedQueue Q) {
     ElementType X;
     PtrToNode TmpCell;
 

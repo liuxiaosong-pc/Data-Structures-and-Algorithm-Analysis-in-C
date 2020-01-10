@@ -5,7 +5,7 @@ Version       ：v1.0
 Author        ：zhengqijun
 Date          ：2020-01-09
 Function List ：
-Description   ：Circular Queue
+Description   ：Sequential List Implementation Of Circular Queue
 ******************************************************/
 
 #include "CircularQueue.h"
@@ -93,7 +93,7 @@ void DeQueue(CircularQueue Q) {
     }
 }
 
-ElementType FrontAndDeQueue(CircularQueue Q) {
+ElementType FrontAndDequeue(CircularQueue Q) {
     ElementType X = 0;
 
     if (IsEmpty(Q)) {

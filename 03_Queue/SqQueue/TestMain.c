@@ -15,7 +15,7 @@ Description   ：main function
 void PrintQueue(SqQueue Q) {
     printf("SqQueue Dequeue:[ ");
     while (!IsEmpty(Q)) {
-        printf("%d ", FrontAndDeQueue(Q));
+        printf("%d ", FrontAndDequeue(Q));
     }
     printf("]\n");
 }
