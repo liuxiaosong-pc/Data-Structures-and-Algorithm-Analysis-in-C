@@ -44,12 +44,12 @@ CircularQueue CreateQueue(int MaxElements) {
         FatalError("Out of space!!!");
     }
 
-    Q->Array = (ElementType *)malloc(sizeof(ElementType) * MaxElements);
+    Q->Array = (ElementType *)malloc(sizeof(ElementType) * (MaxElements + 1));
     if (Q->Array == NULL) {
         FatalError("Out of space!!!");
     }
 
-    Q->Capacity = MaxElements;
+    Q->Capacity = MaxElements + 1;
     MakeEmpty(Q);
 
     return Q;
