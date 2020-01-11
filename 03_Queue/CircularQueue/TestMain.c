@@ -52,6 +52,26 @@ int main(void) {
 
     PrintQueue(Q);
 
+    {  /* Insert */
+        int i = 0;
+        printf("CircularQueue Enqueue:[ ");
+        for (i = 0; i < 7; ++i) {
+            printf("%d ", i + 1);
+            EnQueue(i + 1, Q);
+        }
+        printf("]\n");
+    }
+
+    if (IsEmpty(Q)) {
+        printf("CircularQueue is empty!\n");
+    } else {
+        printf("CircularQueue is not empty!\n");
+    }
+
+    printf("At the front of the circular queue is element %d\n", Front(Q));
+
+    PrintQueue(Q);
+
     if (IsEmpty(Q)) {
         printf("CircularQueue is empty!\n");
     } else {
