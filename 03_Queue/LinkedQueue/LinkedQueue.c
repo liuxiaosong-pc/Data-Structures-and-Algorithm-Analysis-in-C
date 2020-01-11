@@ -28,14 +28,22 @@ int IsEmpty(LinkedQueue Q) {
 
 LinkedQueue CreateQueue(void) {
     LinkedQueue Q;
+    PtrToNode TmpCell;
 
     Q = (LinkedQueue)malloc(sizeof(struct QNode));
     if (Q == NULL) {
         FatalError("Out of space!!!");
     }
 
-    Q->Front = NULL;
-    Q->Rear = NULL;
+    /* Allocate a header node */
+    TmpCell = (PtrToNode)malloc(sizeof(struct Node));
+    if (TmpCell == NULL) {
+        FatalError("Out of space!!!");
+    }
+
+    TmpCell->Next = NULL;
+    Q->Front = TmpCell;
+    Q->Rear = TmpCell;
     MakeEmpty(Q);
 
     return Q;
@@ -43,6 +51,7 @@ LinkedQueue CreateQueue(void) {
 
 void DisposeQueue(LinkedQueue Q) {
     MakeEmpty(Q);
+    free(Q->Front);
     free(Q);
 }
 
@@ -58,7 +67,7 @@ void MakeEmpty(LinkedQueue Q) {
 
 ElementType Front(LinkedQueue Q) {
     if (!IsEmpty(Q)) {
-        return Q->Front->Element;
+        return Q->Front->Next->Element;
     } else {
         Error("Empty queue");
         return 0;  /* Return value used to avoid warning */
@@ -74,8 +83,9 @@ void EnQueue(ElementType X, LinkedQueue Q) {
     }
 
     TmpCell->Element = X;
-    TmpCell->Next = Q->Front;
-    Q->Front = TmpCell;
+    TmpCell->Next = Q->Rear->Next;
+    Q->Rear->Next = TmpCell;
+    Q->Rear = TmpCell;
 }
 
 void DeQueue(LinkedQueue Q) {
@@ -84,8 +94,13 @@ void DeQueue(LinkedQueue Q) {
     if (IsEmpty(Q)) {
         Error("Empty queue");
     } else {
-        TmpCell = Q->Front;
-        Q->Front = TmpCell->Next;
+        /* Set empty if deleted node is Q->Rear */
+        TmpCell = Q->Front->Next;
+        if (TmpCell == Q->Rear) {
+            Q->Rear = Q->Front;
+        }
+
+        Q->Front->Next = TmpCell->Next;
         free(TmpCell);
     }
 }
@@ -98,10 +113,15 @@ ElementType FrontAndDequeue(LinkedQueue Q) {
         Error("Empty queue");
         return 0;  /* Return value used to avoid warning */
     } else {
-        X = Q->Front->Element;  /* Save the value of the first element */
+        X = Q->Front->Next->Element;  /* Save the value of the first element */
 
-        TmpCell = Q->Front;
-        Q->Front = TmpCell->Next;
+        /* Set empty if deleted node is Q->Rear */
+        TmpCell = Q->Front->Next;
+        if (TmpCell == Q->Rear) {
+            Q->Rear = Q->Front;
+        }
+
+        Q->Front->Next = TmpCell->Next;
         free(TmpCell);
 
         return X;
