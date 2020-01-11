@@ -1,5 +1,5 @@
 /*****************************************************
-Copyright (C) 2019. All rights reserved.
+Copyright (C) 2020. All rights reserved.
 File name     ：TestMain.c
 Version       ：v1.0
 Author        ：zhengqijun

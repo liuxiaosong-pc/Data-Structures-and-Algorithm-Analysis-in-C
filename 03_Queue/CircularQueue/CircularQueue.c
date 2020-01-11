@@ -1,4 +1,4 @@
-/*****************************************************
+/***************************************************************
 Copyright (C) 2020. All rights reserved.
 File name     ：CircularQueue.c
 Version       ：v1.0
@@ -6,7 +6,7 @@ Author        ：zhengqijun
 Date          ：2020-01-09
 Function List ：
 Description   ：Sequential List Implementation Of Circular Queue
-******************************************************/
+****************************************************************/
 
 #include "CircularQueue.h"
 #include <stdlib.h>  // for malloc
